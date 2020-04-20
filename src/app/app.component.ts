@@ -10,11 +10,17 @@ export class AppComponent  {
   title = 'covid-tracker';
 
   stats;
+  news;
 
   constructor(private apiService: ApiService){
-     this.apiService.getRequest().then((data => {
+     this.apiService.getCases().then((data => {
       this.stats = data[0];
       console.log(this.stats);
+    }));
+
+     this.apiService.getNews().then((news => {
+      this.news = news;
+      console.log(this.news);
     }));
   }
 
