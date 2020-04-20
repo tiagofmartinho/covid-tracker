@@ -19,7 +19,7 @@ export class ApiService {
   }
 
   public getNews() {
-    return this.http.get('http://newsapi.org/v2/top-headlines?' +
+    return this.http.get('https://newsapi.org/v2/top-headlines?' +
     'q=covid' +
     '&pagesize=3' +
     '&country=pt', {
