@@ -2,7 +2,7 @@
   <h2>Portugal COVID19 Tracker</h2>
   <br />
   <p>
-    <ngb-alert type="info" [dismissible]="false">
+    <ngb-alert type="dark" [dismissible]="false">
       <strong>Confirmados:</strong> {{ stats?.confirmed }}
     </ngb-alert>
   </p>
@@ -19,6 +19,11 @@
   <p>
     <ngb-alert type="danger" [dismissible]="false">
       <strong>Mortes:</strong> {{ stats?.deaths }}
+    </ngb-alert>
+  </p>
+  <p>
+    <ngb-alert type="info" [dismissible]="false">
+      <strong>Correntes (estimados):</strong> {{ current }}
     </ngb-alert>
   </p>
 </div>

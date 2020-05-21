@@ -25,7 +25,7 @@ export class ApiService {
     '&country=pt', {
       observe: 'body',
       responseType: 'json',
-      headers: {'X-Api-Key': 'dc3b65c2307242b299efd1f6350e4cba'}
+      headers: {'X-Api-Key': 'dc3b65c2307242b299efd1f6350e4cba'} // this shouldn't be exposed but security isn't an issue in this case
     }).toPromise();
   }
 }

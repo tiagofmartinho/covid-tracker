@@ -9,6 +9,7 @@ import { ApiService } from './api.service';
 export class AppComponent  {
   title = 'covid-tracker';
 
+  current;
   stats;
   news;
 
@@ -16,6 +17,7 @@ export class AppComponent  {
      this.apiService.getCases().then((data => {
       this.stats = data[0];
       console.log(this.stats);
+      this.current = this.stats.confirmed - this.stats.recovered - this.stats.deaths;
     }));
 
      this.apiService.getNews().then((news => {
