@@ -19,11 +19,6 @@ export class AppComponent  {
       console.log(this.stats);
       this.current = this.stats.confirmed - this.stats.recovered - this.stats.deaths;
     }));
-
-     this.apiService.getNews().then((news => {
-      this.news = news;
-      console.log(this.news);
-    }));
   }
 
 }
