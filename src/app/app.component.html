@@ -28,11 +28,17 @@
   </p>
 </div>
 <br />
-<!-- <div class="container">
+<div class="container">
   <div class="card-deck">
-    <div *ngFor="let article of news?.articles" class="card"> 
-      <img class="card-img-top" src="{{ article.urlToImage }}" onerror="this.style.visibility = 'hidden'" alt="Card image cap" style="height: 12rem;">
-      <div class="card-body" >
+    <div *ngFor="let article of news?.articles" class="card">
+      <img
+        class="card-img-top"
+        src="{{ article.urlToImage }}"
+        onerror="this.style.visibility = 'hidden'"
+        alt="Card image cap"
+        style="height: 12rem"
+      />
+      <div class="card-body">
         <h5 class="card-title">
           <a href="{{ article.url }}" target="_blank" rel="noopener noreferrer">
             {{ article.title }}
@@ -40,18 +46,22 @@
         </h5>
       </div>
       <div class="card-footer">
-        <small class="text-muted">{{article.publishedAt | date: 'dd/MM/yyyy HH:mm'}}</small>
+        <small class="text-muted">{{
+          article.publishedAt | date: "dd/MM/yyyy HH:mm"
+        }}</small>
       </div>
     </div>
   </div>
   <div class="mt-2 text-center">
-    <a href="https://newsapi.org/" target="_blank" rel="noopener noreferrer">powered by NewsAPI.org</a>
+    <a href="https://newsapi.org/" target="_blank" rel="noopener noreferrer"
+      >powered by NewsAPI.org</a
+    >
   </div>
-</div> -->
+</div>
 
 <footer>
   <div class="text-muted mt-4 text-center">
     © 2020 Tiago Martinho
-    <p>
+    <p></p>
   </div>
 </footer>
