@@ -1,67 +1,80 @@
-<div class="container mt-3">
-  <h2>Portugal COVID19 Tracker</h2>
-  <br />
-  <p>
-    <ngb-alert type="dark" [dismissible]="false">
-      <strong>Confirmados:</strong> {{ stats?.confirmed }}
-    </ngb-alert>
-  </p>
-  <p>
-    <ngb-alert type="warning" [dismissible]="false">
-      <strong>Críticos:</strong> {{ stats?.critical }}
-    </ngb-alert>
-  </p>
-  <p>
-    <ngb-alert type="success" [dismissible]="false">
-      <strong>Recuperados:</strong> {{ stats?.recovered }}
-    </ngb-alert>
-  </p>
-  <p>
-    <ngb-alert type="danger" [dismissible]="false">
-      <strong>Mortes:</strong> {{ stats?.deaths }}
-    </ngb-alert>
-  </p>
-  <p>
-    <ngb-alert type="info" [dismissible]="false">
-      <strong>Correntes (estimados):</strong> {{ current }}
-    </ngb-alert>
-  </p>
-</div>
-<br />
-<div class="container">
-  <div class="card-deck">
-    <div *ngFor="let article of news?.articles" class="card">
-      <img
-        class="card-img-top"
-        src="{{ article.urlToImage }}"
-        onerror="this.style.visibility = 'hidden'"
-        alt="Card image cap"
-        style="height: 12rem"
-      />
-      <div class="card-body">
-        <h5 class="card-title">
-          <a href="{{ article.url }}" target="_blank" rel="noopener noreferrer">
-            {{ article.title }}
-          </a>
-        </h5>
-      </div>
-      <div class="card-footer">
-        <small class="text-muted">{{
-          article.publishedAt | date: "dd/MM/yyyy HH:mm"
-        }}</small>
+<div
+  class="container-fluid col-lg-10 col-12 col-md-10 pt-4 pl-2 pr-2"
+  style="background-color: white"
+>
+  <div class="container col-lg-9 col-12 col-md-9">
+    <h2>Portugal COVID19 Tracker</h2>
+    <br />
+    <p>
+      <ngb-alert type="dark" [dismissible]="false">
+        <strong>Confirmados:</strong> {{ current?.cases?.total }} ({{
+          current?.cases?.new
+        }})
+      </ngb-alert>
+    </p>
+    <p>
+      <ngb-alert type="warning" [dismissible]="false">
+        <strong>Críticos:</strong> {{ current?.cases?.critical }} ({{
+          newCritical
+        }})
+      </ngb-alert>
+    </p>
+    <p>
+      <ngb-alert type="success" [dismissible]="false">
+        <strong>Recuperados:</strong> {{ current?.cases?.recovered }} ({{
+          newRecovered
+        }})
+      </ngb-alert>
+    </p>
+    <p>
+      <ngb-alert type="danger" [dismissible]="false">
+        <strong>Mortes:</strong> {{ current?.deaths?.total }} ({{
+          current?.deaths?.new
+        }})
+      </ngb-alert>
+    </p>
+    <p>
+      <ngb-alert type="info" [dismissible]="false">
+        <strong>Ativos:</strong> {{ current?.cases?.active }} ({{ newActive }})
+      </ngb-alert>
+    </p>
+    <br />
+    <div class="card-deck">
+      <div *ngFor="let article of news?.articles" class="card">
+        <img
+          class="card-img-top"
+          src="{{ article.urlToImage }}"
+          onerror="this.style.visibility = 'hidden'"
+          alt="Card image cap"
+          style="height: 12rem"
+        />
+        <div class="card-body">
+          <h5 class="card-title">
+            <a
+              href="{{ article.url }}"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {{ article.title }}
+            </a>
+          </h5>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">{{
+            article.publishedAt | date: "dd/MM/yyyy HH:mm"
+          }}</small>
+        </div>
       </div>
     </div>
+    <div class="mt-2 text-center">
+      <a href="https://newsapi.org/" target="_blank" rel="noopener noreferrer"
+        >powered by NewsAPI.org</a
+      >
+    </div>
   </div>
-  <div class="mt-2 text-center">
-    <a href="https://newsapi.org/" target="_blank" rel="noopener noreferrer"
-      >powered by NewsAPI.org</a
-    >
-  </div>
-</div>
 
-<footer>
-  <div class="text-muted mt-4 text-center">
-    © 2020 Tiago Martinho
-    <p></p>
-  </div>
-</footer>
+  <footer>
+    <div class="text-muted mt-4 text-center">© 2020 Tiago Martinho</div>
+    <br />
+  </footer>
+</div>
