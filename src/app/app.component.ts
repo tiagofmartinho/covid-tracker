@@ -1,5 +1,4 @@
-import { Component, OnInit } from "@angular/core";
-import { ConsoleReporter } from "jasmine";
+import { Component } from "@angular/core";
 import { ApiService } from "./api.service";
 
 @Component({
@@ -10,16 +9,16 @@ import { ApiService } from "./api.service";
 export class AppComponent {
   title = "covid-tracker";
 
-  news: object;
-  current: object;
-  before: object;
+  news: any;
+  current: any;
+  before: any;
 
   newRecovered = "+";
   newCritical: any;
   newActive: any;
 
   constructor(private apiService: ApiService) {
-    this.apiService.getCases().then((data) => {
+    this.apiService.getCases().then((data: any) => {
       this.current = data.response[0];
       this.before = data.response[1];
       this.newRecovered +=
@@ -35,8 +34,8 @@ export class AppComponent {
       }
     });
 
-    this.apiService.getNews().then((news) => {
-      this.news = news;
-    });
+    // this.apiService.getNews().then((news) => {
+    //   this.news = news;
+    // });
   }
 }
