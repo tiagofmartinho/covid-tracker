@@ -26,20 +26,4 @@ export class ApiService {
       )
       .toPromise();
   }
-
-  public getNews() {
-    return this.http
-      .get(
-        "https://newsapi.org/v2/top-headlines?" +
-          "q=covid" +
-          "&pagesize=3" +
-          "&country=pt",
-        {
-          observe: "body",
-          responseType: "json",
-          headers: { "X-Api-Key": "dc3b65c2307242b299efd1f6350e4cba" }, // this shouldn't be exposed but security isn't an issue in this case
-        }
-      )
-      .toPromise();
-  }
 }
