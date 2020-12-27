@@ -7,8 +7,5 @@
         ]
       }
     }
-  },
-  "projects": {
-    "default": "covid-tracker-4f7e7"
   }
 }
