@@ -12,6 +12,7 @@ export class AppComponent {
   current: any;
   newCritical: any;
   newActive: any;
+  currentYear = new Date().getFullYear();
 
   constructor(private apiService: ApiService) {
     this.apiService.getCases().then((data: any) => {
