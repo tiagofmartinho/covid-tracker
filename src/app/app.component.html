@@ -3,8 +3,8 @@
     <br />
     <p>
       <ngb-alert type="secondary" [dismissible]="false">
-        <strong>Confirmados:</strong> {{ current?.cases?.total | number }} ({{
-          current?.cases?.new
+        <strong>Confirmados:</strong> {{ current?.cases?.total | number}} (+{{
+          current?.cases?.new | number
         }})
       </ngb-alert>
     </p>
@@ -20,8 +20,8 @@
     </p>
     <p>
       <ngb-alert type="danger" [dismissible]="false">
-        <strong>Mortes:</strong> {{ current?.deaths?.total | number}} ({{
-          current?.deaths?.new
+        <strong>Mortes:</strong> {{ current?.deaths?.total | number}} (+{{
+          current?.deaths?.new | number
         }})
       </ngb-alert>
     </p>
@@ -32,7 +32,7 @@
     </p>
     <p>
       <ngb-alert type="tests" [dismissible]="false">
-        <strong>Testes:</strong> {{ current?.tests?.total |number }}
+        <strong>Testes:</strong> {{ current?.tests?.total | number }}
       </ngb-alert>
     </p>
     <br />
