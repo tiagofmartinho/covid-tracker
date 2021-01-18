@@ -3,36 +3,36 @@
     <br />
     <p>
       <ngb-alert type="secondary" [dismissible]="false">
-        <strong>Confirmados:</strong> {{ current?.cases?.total }} ({{
+        <strong>Confirmados:</strong> {{ current?.cases?.total | number }} ({{
           current?.cases?.new
         }})
       </ngb-alert>
     </p>
     <p>
       <ngb-alert type="warning" [dismissible]="false">
-        <strong>Críticos:</strong> {{ current?.cases?.critical }}
+        <strong>Críticos:</strong> {{ current?.cases?.critical | number}}
       </ngb-alert>
     </p>
     <p>
       <ngb-alert type="success" [dismissible]="false">
-        <strong>Recuperados:</strong> {{ current?.cases?.recovered }}
+        <strong>Recuperados:</strong> {{ current?.cases?.recovered | number}}
       </ngb-alert>
     </p>
     <p>
       <ngb-alert type="danger" [dismissible]="false">
-        <strong>Mortes:</strong> {{ current?.deaths?.total }} ({{
+        <strong>Mortes:</strong> {{ current?.deaths?.total | number}} ({{
           current?.deaths?.new
         }})
       </ngb-alert>
     </p>
     <p>
       <ngb-alert type="info" [dismissible]="false">
-        <strong>Ativos:</strong> {{ current?.cases?.active }}
+        <strong>Ativos:</strong> {{ current?.cases?.active | number }}
       </ngb-alert>
     </p>
     <p>
       <ngb-alert type="tests" [dismissible]="false">
-        <strong>Testes:</strong> {{ current?.tests?.total }}
+        <strong>Testes:</strong> {{ current?.tests?.total |number }}
       </ngb-alert>
     </p>
     <br />
