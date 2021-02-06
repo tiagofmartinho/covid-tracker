@@ -1,5 +1,9 @@
 <div class="container-fluid col-lg-6 col-12 col-md-9 pt-2" style="background-color: white">
 
+  <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "ball-spin-clockwise-fade" [fullScreen] = "true">
+    <p style="color: white" > {{ 'Loading' | translate }} </p>
+  </ngx-spinner>
+
   <span (click)="switchLanguage()" class="badge badge-light">{{ language === 'en' ? '🇵🇹' : '🇬🇧' }}</span>
 
     <h2 class="text-center mt-4">Portugal COVID19 Tracker 🇵🇹</h2>

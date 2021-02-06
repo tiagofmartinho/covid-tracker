@@ -7,6 +7,7 @@ import { DatePipe, registerLocaleData } from "@angular/common";
 import localePT from '@angular/common/locales/pt';
 import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
+import { NgxSpinnerModule } from "ngx-spinner";
 registerLocaleData(localePT);
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -15,7 +16,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [NgbModule, BrowserModule, HttpClientModule, TranslateModule.forRoot({
+  imports: [NgbModule, BrowserModule, HttpClientModule, NgxSpinnerModule, TranslateModule.forRoot({
     defaultLanguage: 'pt',
     loader: {
       provide: TranslateLoader,

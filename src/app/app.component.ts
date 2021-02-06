@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { TranslateService } from "@ngx-translate/core";
+import { NgxSpinnerService } from "ngx-spinner";
 import { ApiService } from "./api.service";
 import { CovidReport } from "./model/CovidReport.model";
 
@@ -19,7 +20,8 @@ export class AppComponent {
   currentYear = new Date().getFullYear();
   language = 'pt';
 
-  constructor(private apiService: ApiService, private translationService: TranslateService) {
+  constructor(private apiService: ApiService, private translationService: TranslateService, private spinner: NgxSpinnerService) {
+    this.spinner.show();
     this.translationService.use(this.translationService.getDefaultLang());
     this.apiService.getCases().then((reports: CovidReport[]) => {
       console.log(reports);
@@ -28,6 +30,7 @@ export class AppComponent {
       this.newActive = this.getSigned(this.current.active - reports[1].active);
       this.newRecovered = this.current.recovered - reports[1].recovered;
       this.newTests = this.current.tests - reports[1].tests;
+      this.spinner.hide();
     });
   }
 
