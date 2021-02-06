@@ -1,49 +1,49 @@
 <div class="container-fluid col-lg-6 col-12 col-md-9 pt-2" style="background-color: white">
-    <h2 class="text-center mt-4">Portugal COVID19 Tracker</h2>
+
+  <span (click)="switchLanguage()" class="badge badge-light">{{ language === 'en' ? '🇵🇹' : '🇬🇧' }}</span>
+
+    <h2 class="text-center mt-4">Portugal COVID19 Tracker 🇵🇹</h2>
   <br>
+
   <div class="row justify-content-center">
     <ngb-alert class="col-lg-6 col-md-8 col-10" type="warning" [dismissible]="false">
-      <strong>Ativos:</strong> {{ current?.cases?.active | number }}
+      <strong>{{ 'Active' | translate }}:</strong> {{ current?.active | number }} ({{ newActive | number }})
     </ngb-alert>
   </div>
 
   <div class="row justify-content-center">
     <ngb-alert class="col-lg-6 col-md-8 col-10" type="critical" [dismissible]="false">
-      <strong>Críticos:</strong> {{ current?.cases?.critical | number}}
+      <strong>{{ 'Critical' | translate }}:</strong> {{ current?.critical | number}} ({{ newCritical | number }})
     </ngb-alert>
   </div>
 
   <div class="row justify-content-center">
     <ngb-alert class="col-lg-6 col-md-8 col-10" type="danger" [dismissible]="false">
-      <strong>Mortes:</strong> {{ current?.deaths?.total | number}} (+{{
-        current?.deaths?.new | number
-      }})
+      <strong>{{ ' Deaths' | translate }}:</strong> {{ current?.deaths | number}} (+{{ current?.newDeaths | number }})
     </ngb-alert>    
   </div>
 
   <div class="row justify-content-center">
     <ngb-alert class="col-lg-6 col-md-8 col-10" type="success" [dismissible]="false">
-      <strong>Recuperados:</strong> {{ current?.cases?.recovered | number}}
+      <strong>{{ 'Recovered' | translate }}:</strong> {{ current?.recovered | number}} (+{{ newRecovered | number }})
     </ngb-alert>  
   </div>
 
   <div class="row justify-content-center">
     <ngb-alert class="col-lg-6 col-md-8 col-10" type="info" [dismissible]="false">
-      <strong>Confirmados:</strong> {{ current?.cases?.total | number}} (+{{
-        current?.cases?.new | number
-      }})
+      <strong>{{ 'Confirmed' | translate }}:</strong> {{ current?.confirmed | number}} (+{{ current?.newCases | number }})
     </ngb-alert>
   </div>
     
 
   <div class="row justify-content-center">
           <ngb-alert class="col-lg-6 col-md-8 col-10" type="secondary" [dismissible]="false">
-            <strong>Testes:</strong> {{ current?.tests?.total | number }}
+            <strong>{{ 'Tests' | translate }}:</strong> {{ current?.tests | number }} (+{{ newTests | number }})
           </ngb-alert>
   </div>
 </div>
 
 <footer>
-  <div class="text-muted mt-4 text-center">Dados atualizados a:<br>{{current?.time | date:'short' }}</div>
+  <div class="text-muted mt-4 text-center">{{ 'UpdatedAt'  | translate }}:<br>{{current?.time | date:'short' }}</div>
   <div class="text-muted mt-4 mb-2 text-center">© {{ currentYear }} Tiago Martinho</div>
 </footer>
