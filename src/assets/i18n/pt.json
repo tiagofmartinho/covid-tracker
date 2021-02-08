@@ -1,0 +1,10 @@
+{
+    "Active": "Ativos",
+    "Critical": "Críticos",
+    "Deaths": "Mortes",
+    "Recovered": "Recuperados",
+    "Confirmed": "Confirmados",
+    "Tests": "Testes",
+    "UpdatedAt": "Atualizado em",
+    "Loading": "A carregar..."
+}

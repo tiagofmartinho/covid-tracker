@@ -1,45 +1,94 @@
-<div class="container-fluid col-lg-10 col-12 col-md-10 pt-4 pl-2 pr-2">
-  <div class="container col-lg-9 col-12 col-md-9">
-    <h2>Portugal COVID19 Tracker</h2>
-    <br />
-    <p>
-      <ngb-alert type="secondary" [dismissible]="false">
-        <strong>Confirmados:</strong> {{ current?.cases?.total }} ({{
-          current?.cases?.new
-        }})
-      </ngb-alert>
-    </p>
-    <p>
-      <ngb-alert type="warning" [dismissible]="false">
-        <strong>Críticos:</strong> {{ current?.cases?.critical }}
-      </ngb-alert>
-    </p>
-    <p>
-      <ngb-alert type="success" [dismissible]="false">
-        <strong>Recuperados:</strong> {{ current?.cases?.recovered }}
-      </ngb-alert>
-    </p>
-    <p>
-      <ngb-alert type="danger" [dismissible]="false">
-        <strong>Mortes:</strong> {{ current?.deaths?.total }} ({{
-          current?.deaths?.new
-        }})
-      </ngb-alert>
-    </p>
-    <p>
-      <ngb-alert type="info" [dismissible]="false">
-        <strong>Ativos:</strong> {{ current?.cases?.active }}
-      </ngb-alert>
-    </p>
-    <p>
-      <ngb-alert type="light" [dismissible]="false">
-        <strong>Testes:</strong> {{ current?.tests?.total }}
-      </ngb-alert>
-    </p>
-    <br />
+<div
+  class="container-fluid col-lg-6 col-12 col-md-9 pt-2"
+  style="background-color: white"
+>
+  <ngx-spinner
+    bdColor="rgba(0, 0, 0, 0.8)"
+    size="medium"
+    color="#fff"
+    type="ball-spin-clockwise-fade"
+    [fullScreen]="true"
+  >
+    <p style="color: white">{{ "Loading" | translate }}</p>
+  </ngx-spinner>
 
-    <footer>
-      <div class="text-muted mt-4 text-center">© 2020 Tiago Martinho</div>
-    </footer>
+  <span (click)="switchLanguage()" class="badge badge-light">{{
+    language === "en" ? "🇵🇹" : "🇬🇧"
+  }}</span>
+
+  <h2 class="text-center mt-4">Portugal COVID19 Tracker 🇵🇹</h2>
+  <br />
+
+  <div class="row justify-content-center">
+    <ngb-alert
+      class="col-lg-6 col-md-8 col-10"
+      type="warning"
+      [dismissible]="false"
+    >
+      <strong>{{ "Active" | translate }}:</strong>
+      {{ current?.active | number }} ({{ newActive }})
+    </ngb-alert>
   </div>
+
+  <div class="row justify-content-center">
+    <ngb-alert
+      class="col-lg-6 col-md-8 col-10"
+      type="critical"
+      [dismissible]="false"
+    >
+      <strong>{{ "Critical" | translate }}:</strong>
+      {{ current?.critical | number }} ({{ newCritical }})
+    </ngb-alert>
+  </div>
+
+  <div class="row justify-content-center">
+    <ngb-alert
+      class="col-lg-6 col-md-8 col-10"
+      type="danger"
+      [dismissible]="false"
+    >
+      <strong>{{ " Deaths" | translate }}:</strong>
+      {{ current?.deaths | number }} (+{{ current?.newDeaths | number }})
+    </ngb-alert>
+  </div>
+
+  <div class="row justify-content-center">
+    <ngb-alert
+      class="col-lg-6 col-md-8 col-10"
+      type="success"
+      [dismissible]="false"
+    >
+      <strong>{{ "Recovered" | translate }}:</strong>
+      {{ current?.recovered | number }} (+{{ newRecovered | number }})
+    </ngb-alert>
+  </div>
+
+  <div class="row justify-content-center">
+    <ngb-alert
+      class="col-lg-6 col-md-8 col-10"
+      type="info"
+      [dismissible]="false"
+    >
+      <strong>{{ "Confirmed" | translate }}:</strong>
+      {{ current?.confirmed | number }} (+{{ current?.newCases | number }})
+    </ngb-alert>
+  </div>
+
+  <div class="row justify-content-center">
+    <ngb-alert
+      class="col-lg-6 col-md-8 col-10"
+      type="secondary"
+      [dismissible]="false"
+    >
+      <strong>{{ "Tests" | translate }}:</strong>
+      {{ current?.tests | number }} (+{{ newTests | number }})
+    </ngb-alert>
+  </div>
+
+  <footer>
+    <div class="text-muted mt-4">
+      {{ "UpdatedAt" | translate }}:<br />{{ current?.time | date: "short" }}
+    </div>
+    <div class="text-muted mt-4 mb-2">© {{ currentYear }} Tiago Martinho</div>
+  </footer>
 </div>

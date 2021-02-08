@@ -9,6 +9,6 @@
     }
   },
   "projects": {
-    "default": "covid-tracker-4f7e7"
+    "covid-tracker": "covid-tracker-4f7e7"
   }
 }
