@@ -26,10 +26,10 @@ export class AppComponent {
     this.apiService.getCases().then((reports: CovidReport[]) => {
       console.log(reports);
       this.current = reports[0];
-      this.newCritical = this.getSigned(this.current.critical - reports[1].critical);
-      this.newActive = this.getSigned(this.current.active - reports[1].active);
-      this.newRecovered = this.current.recovered - reports[1].recovered;
-      this.newTests = this.current.tests - reports[1].tests;
+      this.newCritical = this.getSigned(this.current.critical - reports[1]?.critical);
+      this.newActive = this.getSigned(this.current.active - reports[1]?.active);
+      this.newRecovered = this.current.recovered - reports[1]?.recovered;
+      this.newTests = this.current.tests - reports[1]?.tests;
       this.spinner.hide();
     });
   }
